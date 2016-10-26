@@ -1,4 +1,4 @@
-package com.pzl.dreamer;
+package com.pzl.demo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

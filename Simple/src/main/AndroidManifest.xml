@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pzl.dreamer">
+    package="com.pzl.demo">
 
     <application
         android:allowBackup="true"
@@ -18,6 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.NetActivity"
+            android:label="@string/title_activity_net"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.HTTPClientUtilActivity"
+            android:label="@string/title_activity_httpclient_util"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
