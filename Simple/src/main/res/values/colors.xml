@@ -3,4 +3,16 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- global default -->
+
+    <color name="colorDefaultTextViewMsgShowBg">#000000</color>
+    <color name="colorDefaultTextViewMsgShowText">#818181</color>
+
+    <!-- net -->
+    <color name="colorNetLabelBg">#f1a6bf</color>
+    <color name="colorNetLabelText">#ffffff</color>
+    <color name="colorNetBtnBg">#d7aa6e</color>
+    <color name="colorNetBtnText">#ffffff</color>
+
 </resources>
