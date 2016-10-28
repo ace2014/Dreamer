@@ -1,5 +1,6 @@
 package com.pzl.demo.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -71,6 +72,9 @@ public class NetActivity extends AppCompatActivity {
                 break;
             case R.id.btnHttpURLConnectionPost:
                 pool.execute(new HttpTask(etGetUrl.getText().toString().trim(), etPostParams.getText().toString().trim(), POST_HTTP_URLCONNECTION));
+                break;
+            case R.id.btnRetrofit:
+                startActivity(new Intent(this, RetrofitActivity.class));
                 break;
         }
     }

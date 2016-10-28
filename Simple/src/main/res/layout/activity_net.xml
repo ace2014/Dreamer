@@ -112,6 +112,21 @@
                 android:onClick="click"
                 android:text="HttpURLConnection Post" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorNetLabelBg"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Retrofit"
+                android:textColor="@color/colorNetLabelText" />
+
+            <Button
+                android:id="@+id/btnRetrofit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="Retrofit okhttp" />
         </LinearLayout>
     </ScrollView>
 
