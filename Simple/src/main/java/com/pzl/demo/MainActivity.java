@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.pzl.demo.activity.AnimActivity;
 import com.pzl.demo.activity.NetActivity;
 import com.pzl.dreamer.base.BaseActivity;
 
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.btnNet:
                 intent.setClass(this, NetActivity.class);
+                break;
+            case R.id.btnAnim:
+                intent.setClass(this, AnimActivity.class);
                 break;
         }
         startActivity(intent);
