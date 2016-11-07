@@ -28,4 +28,6 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'//默认返回值转化使用gson(其它可选：Jackson,Moshi,Protobuf ...)
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 
+    compile 'net.zetetic:android-database-sqlcipher:3.4.0'
+
 }

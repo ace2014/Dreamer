@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.pzl.demo.activity.AnimActivity;
 import com.pzl.demo.activity.NetActivity;
+import com.pzl.demo.activity.SQLiteActivity;
 import com.pzl.dreamer.base.BaseActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnAnim:
                 intent.setClass(this, AnimActivity.class);
+                break;
+            case R.id.btnSqlite:
+                intent.setClass(this, SQLiteActivity.class);
                 break;
         }
         startActivity(intent);

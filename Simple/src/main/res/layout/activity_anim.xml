@@ -128,6 +128,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <!--  -->
+            <LinearLayout
+                android:id="@+id/threeSourceView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f5d1d1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="测试"
+                    android:textColor="#5c0e97"
+                    android:textSize="22sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/test2" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/sb3dView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.pzl.dreamer.widget.Image3dView
+                android:id="@+id/iv3d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

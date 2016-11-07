@@ -3,6 +3,7 @@ package com.pzl.demo.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.pzl.demo.R;
 import com.pzl.dreamer.anim.Rotate3dAnimation;
+import com.pzl.dreamer.widget.Image3dView;
 
 public class AnimActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener, Animation.AnimationListener {
     static final String TAG = "AnimActivity";
@@ -23,6 +25,7 @@ public class AnimActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     private SeekBar sbCenterX;
     private SeekBar sbCenterY;
     private SeekBar sbDepthZ;
+    private SeekBar sb3dView;
 
     private TextView tvFromDegrees;
     private TextView tvToDegrees;
@@ -30,6 +33,8 @@ public class AnimActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     private TextView tvCenterY;
     private TextView tvDepthZ;
     private ImageView iv;
+    private Image3dView iv3d;
+    private View threeSourceView;
 
     private CheckBox cb;
 
@@ -38,6 +43,7 @@ public class AnimActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     private int centerY;
     private int centerX;
     private int depthZ;
+    private int image3dViewWidth;
     private boolean isReverse;
 
     private Rotate3dAnimation rotate3dAnimation;
@@ -59,6 +65,7 @@ public class AnimActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         sbCenterY = (SeekBar) findViewById(R.id.sbCenterY);
         sbCenterX = (SeekBar) findViewById(R.id.sbCenterX);
         sbDepthZ = (SeekBar) findViewById(R.id.sbDepthZ);
+        sb3dView = (SeekBar) findViewById(R.id.sb3dView);
 
         tvFromDegrees = (TextView) findViewById(R.id.tvFromDegrees);
         tvToDegrees = (TextView) findViewById(R.id.tvToDegrees);
@@ -66,6 +73,8 @@ public class AnimActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         tvCenterY = (TextView) findViewById(R.id.tvCenterY);
         tvDepthZ = (TextView) findViewById(R.id.tvDepthZ);
         iv = (ImageView) findViewById(R.id.iv);
+        iv3d = (Image3dView) findViewById(R.id.iv3d);
+        threeSourceView = findViewById(R.id.threeSourceView);
 
         cb = (CheckBox) findViewById(R.id.cb);
         cb.setOnCheckedChangeListener(this);
@@ -75,12 +84,16 @@ public class AnimActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         sbCenterY.setOnSeekBarChangeListener(this);
         sbCenterX.setOnSeekBarChangeListener(this);
         sbDepthZ.setOnSeekBarChangeListener(this);
+        sb3dView.setOnSeekBarChangeListener(this);
 
         sbFromDegrees.setMax(90);
         sbToDegrees.setMax(90);
         sbCenterY.setMax(400);
         sbCenterX.setMax(400);
         sbDepthZ.setMax(100);
+        sb3dView.setMax(200);
+
+        iv3d.setSourceView(threeSourceView);
     }
 
     @Override
@@ -105,6 +118,10 @@ public class AnimActivity extends AppCompatActivity implements SeekBar.OnSeekBar
             case R.id.sbDepthZ:
                 depthZ = -50 + progress;
                 tvDepthZ.setText("depthZ:" + depthZ);
+                break;
+            case R.id.sb3dView:
+                image3dViewWidth = -100 + progress;
+                Log.e(TAG, "image3dViewWidth=" + image3dViewWidth);
                 break;
         }
     }
@@ -150,4 +167,5 @@ public class AnimActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     public void onAnimationRepeat(Animation animation) {
 
     }
+
 }

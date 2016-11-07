@@ -7,4 +7,5 @@
     <string name="text_post_params">{"token":"1a502579ba5f4955a3efc9f5324c3e44","version":"1","cmd":"queryProjectAccountList","params":{"accountId":0}}</string>
     <string name="title_activity_retrofit">RetrofitActivity</string>
     <string name="title_activity_anim">AnimActivity</string>
+    <string name="title_activity_sqlite">SQLiteActivity</string>
 </resources>
