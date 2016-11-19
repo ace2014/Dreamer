@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.view.ViewConfiguration;
 import android.view.inputmethod.InputMethodManager;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -36,7 +38,7 @@ public class AppUtil {
      */
     public static void exitAndRestart(Context context, Class<?> activityCls) {
         Intent intent = new Intent(context, activityCls);
-        PendingIntent restartIntent = PendingIntent.getActivity(context, 0, intent, 268435456);
+        PendingIntent restartIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager mgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         mgr.set(1, System.currentTimeMillis() + 1000L, restartIntent);
     }
@@ -198,6 +200,20 @@ public class AppUtil {
         InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         if ((inputMethodManager != null) && (((Activity) context).getCurrentFocus() != null))
             inputMethodManager.hideSoftInputFromWindow(((Activity) context).getCurrentFocus().getWindowToken(), 2);
+    }
+
+    /**
+     * 把actionbar的overflow按钮样式改为统一右上角，不受设备物理键影响
+     */
+    private void setOverflowShowingAlways(Context context) {
+        try {
+            ViewConfiguration config = ViewConfiguration.get(context);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            menuKeyField.setAccessible(true);
+            menuKeyField.setBoolean(config, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
