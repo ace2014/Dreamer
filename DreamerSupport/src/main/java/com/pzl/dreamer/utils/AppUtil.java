@@ -216,4 +216,17 @@ public class AppUtil {
         }
     }
 
+    /**
+     * app能否分配最大的堆大小，结果单位以MB返回，如果使用内存超过这个出现outOfMemoryError
+     *
+     * @param context
+     * @return
+     */
+    private int getAppHeapSize(Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        int heapSize = am.getMemoryClass();
+        return heapSize;
+    }
+
+    
 }
